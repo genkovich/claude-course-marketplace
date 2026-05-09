@@ -28,10 +28,18 @@ jobs:
         plugin: [deploy-checklist]
     steps:
       - uses: actions/checkout@v4
-      - name: Install Claude Code CLI
-        run: npm install -g @anthropic-ai/claude-code
-      - name: Validate plugin manifest
-        run: claude plugin validate ./plugins/${{ matrix.plugin }}
-      - name: Smoke install
+      - name: Install Claude Code CLI (native, stable channel)
         run: |
-          claude --plugin-dir ./plugins/${{ matrix.plugin }} --print "echo ready" || exit 1 
+          curl -fsSL https://claude.ai/install.sh | bash -s stable
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Show CLI version
+        run: claude --version
+      - name: Validate plugin manifest (no auth)
+        run: claude plugin validate ./plugins/${{ matrix.plugin }}
+      - name: Smoke install (requires ANTHROPIC_API_KEY)
+        if: env.ANTHROPIC_API_KEY != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude --plugin-dir ./plugins/${{ matrix.plugin }} \
+                 --print "echo ready" || exit 1
