@@ -1,0 +1,22 @@
+{
+  "name": "claude-course-marketplace",
+  "owner": {
+    "name": "Course Engineering Platform",
+    "email": "platform@acme.example"
+  },
+  "description": "Внутрішні плагіни",
+  "plugins": [
+    {
+      "name": "deploy-checklist",
+      "source": "./plugins/deploy-checklist",
+      "description": "Чек-лист перед деплоєм у прод.",
+      "version": "0.1.0",
+      "category": "ops",
+      "tags": ["deploy", "checklist"],
+      "strict": true,
+      "author": {
+        "name": "Platform Squad"
+      }
+    }
+  ]
+}
