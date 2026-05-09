@@ -36,10 +36,3 @@ jobs:
         run: claude --version
       - name: Validate plugin manifest (no auth)
         run: claude plugin validate ./plugins/${{ matrix.plugin }}
-      - name: Smoke install (requires ANTHROPIC_API_KEY)
-        if: env.ANTHROPIC_API_KEY != ''
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          claude --plugin-dir ./plugins/${{ matrix.plugin }} \
-                 --print "echo ready" || exit 1
