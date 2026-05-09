@@ -1,0 +1,22 @@
+{
+  "name": "claude-course-marketplace",
+  "owner": {
+    "name": "Engineering Platform",
+    "email": "platform@example.com"
+  },
+  "description": "Внутрішні плагіни",
+  "plugins": [
+    {
+      "name": "deploy-checklist",
+      "source": "./plugins/deploy-checklist",
+      "description": "Pre-deploy checklist enforcer: env diff, migrations dry-run, smoke endpoints, rollback plan, oncall heads-up.",
+      "version": "1.0.0",
+      "category": "ops",
+      "tags": ["deploy", "checklist"],
+      "strict": true,
+      "author": {
+        "name": "Platform Squad"
+      }
+    }
+  ]
+}
