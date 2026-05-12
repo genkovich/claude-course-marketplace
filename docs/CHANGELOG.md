@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-05-12
+
+### Added
+
+- `/review` command for pr-review-rules plugin — automated PR review enforcement
+- `release-notes.yml` workflow — automated changelog generation and release notes
+
 ## [1.0.0] - 2026-05-12
 
 ### Added
