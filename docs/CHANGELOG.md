@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-05-12
+
+### Added
+
+- `/review` command for inline PR reviews in pr-review-rules plugin
+- Automated release-notes workflow using Claude project analysis and workflow_call triggers
+
 ## [1.0.0] - 2026-05-12
 
 ### Added
